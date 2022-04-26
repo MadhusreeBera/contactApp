@@ -1,38 +1,203 @@
-.App {
+.header {
+  width: 100%;
+  background-color: rgb(59, 130, 246);
+  position: fixed;
+  z-index: 10;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header h1 {
+  padding: 1rem;
+  font-size: 1.875rem;
+  color: white;
+  letter-spacing: 0.05em;
+  font-weight: normal;
+}
+.addButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  background-color: rgb(59, 130, 246);
+  margin: 1rem;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.outerContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: 2.5rem;
+}
+.leftContainer {
+  width: 50%;
+  padding-inline: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contactOuter {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+  border-bottom: 2px;
+  margin-bottom: 1px;
+  border-radius: 0.375rem;
+  position: relative;
+}
+.contactOuter img {
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+
+.contactInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.contactInner h2 {
+  font-weight: normal;
+}
+.contactInner p {
+  padding-top: 5px;
+  color: gray;
+}
+.tagClass {
+  border-width: 2px;
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+  margin-top: 5px;
+  padding: 0.25rem 1rem;
+}
+.tagSchool {
+  border: 2px solid rgb(253 186 116);
+  background-color: rgb(255, 237, 213);
+}
+.tagPersonal {
+  border: 2px solid rgb(147 197 253);
+  background-color: rgb(219, 234, 254);
+}
+
+.tagWork {
+  border: 2px solid rgb(253 224 71);
+  background-color: rgb(254, 249, 195);
+}
+
+.tagNone {
+  border: 2px solid rgb(216 180 254);
+  background-color: rgb(243 232 255);
+}
+
+.contactAction {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.75rem;
+}
+.actionIcon {
+  margin-bottom: 0.75rem;
+  opacity: 0.6;
+  cursor: pointer;
+  color: rgb(59, 130, 246);
+}
+.actionIcon:hover {
+  opacity: 1;
+}
+
+.addContactHeader {
+  padding: 1rem;
+  padding-top: 0;
+}
+.addContactHeader h1 {
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+.addContactContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: white;
+  margin: auto;
+  border-radius: 00.375rem;
+  padding: 1rem;
+}
+.rightContainer {
+  width: 50%;
+  padding: 1.5rem;
+  padding-top: 0;
+  margin-top: 4.6em;
+}
+
+.addContactOuter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  padding-bottom: 2rem;
+}
+.inputDiv {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.inputDiv input {
+  width: 75%;
+  padding: 0.5rem;
+  border-width: 2px;
+  border-radius: 0.375rem;
+  border: 1px solid rgb(147 197 253);
+}
+.inputDiv input:focus {
+  border-color: rgb(59, 130, 246);
+  outline: none;
+}
+
+.tagDiv {
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 75%;
+}
+.tagDiv div {
+  margin-right: 2rem;
+}
+.tagDiv input {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.addContactButton {
+  background-color: rgb(96, 165, 250);
+  padding: 0.5rem;
   color: white;
+  border-radius: 0.375rem;
+  border: transparent;
+}
+.addContactButtonDiv {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.filterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-bottom: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filterContainer p {
+  font-size: 1.25rem;
+  letter-spacing: 0.05rem;
 }

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Naruto Uzumaki",
+    "avatar": "https://cdn.wealthygorilla.com/wp-content/uploads/2020/08/Naruto-Quotes.jpg",
+    "phone": "123456784",
+    "tag": "Personal"
+  },
+  {
+    "id": 2,
+    "name": "Itachi Uchiha",
+    "avatar": "https://wallpapercave.com/wp/wp9235738.jpg",
+    "phone": "236547845",
+    "tag": "School"
+  },
+  {
+    "id": 3,
+    "name": "Jiraya",
+    "avatar": "https://i1.sndcdn.com/artworks-4vWaJldDii5oMIUm-8WXIZw-t500x500.jpg",
+    "phone": "236547845",
+    "tag": "Work"
+  }
+]
