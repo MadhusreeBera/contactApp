@@ -39,6 +39,7 @@ const AddContact = ({ handleHideForm, addContact }) => {
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify(newContact),
     })
+      .then((res) => res.json()) // must include this
       .then((res) => {
         addContact(newContact);
         alert("Contact added successfully");

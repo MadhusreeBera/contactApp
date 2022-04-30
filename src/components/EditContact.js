@@ -38,9 +38,18 @@ const EditContact = ({ setShowEditForm, contact, editContact }) => {
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify(editedContact),
     })
+      .then((res) => res.json()) // must include this
       .then((res) => {
-        editContact(editedContact);
-        alert("Contact saved successfully");
+        // console.log({ res });
+        let updatedContact = {
+          _id: res.contact._id,
+          avatar: res.contact.avatar,
+          name: res.contact.name,
+          phone: res.contact.phone,
+          tag: res.contact.tag,
+        };
+        editContact(updatedContact);
+        alert("Contact updated successfully");
         setShowEditForm(false);
       })
       .catch((error) => {

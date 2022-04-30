@@ -47,7 +47,7 @@ function App() {
     //post request send edited contact
     //respond -> update the contactList
     let oldContactIndex = contactList.findIndex(
-      (contact) => contact.id === editedContact.id
+      (contact) => contact._id === editedContact._id // compare _id of contact
     );
     console.log({ oldContactIndex });
     let oldContactList = [...contactList];
