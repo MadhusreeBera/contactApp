@@ -26,17 +26,26 @@ const EditContact = ({ setShowEditForm, contact, editContact }) => {
       return alert("Please insert avatar");
     }
 
-    let newContact = {
-      id: contact.id,
+    let editedContact = {
       avatar,
       name,
       phone,
       tag: newTag,
     };
-    console.log({ newContact });
-    editContact(newContact);
-    alert("Contact saved successfully");
-    setShowEditForm(false);
+    console.log({ editedContact });
+    fetch("http://localhost:4000/contact/" + contact._id, {
+      method: "PATCH",
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+      body: JSON.stringify(editedContact),
+    })
+      .then((res) => {
+        editContact(editedContact);
+        alert("Contact saved successfully");
+        setShowEditForm(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

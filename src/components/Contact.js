@@ -2,7 +2,7 @@ import React from "react";
 import { MdOutlineEdit, MdOutlineDelete } from "react-icons/md";
 
 export const Contact = ({ contactProp, deleteContact, handleEditForm }) => {
-  const { name, id, avatar, phone, tag } = contactProp;
+  const { name, _id, avatar, phone, tag } = contactProp;
   return (
     <div className="contactOuter">
       <img src={avatar} alt={name} />
@@ -32,7 +32,7 @@ export const Contact = ({ contactProp, deleteContact, handleEditForm }) => {
           <MdOutlineEdit size={25} />
         </div>
         <div
-          onClick={() => deleteContact(id)}
+          onClick={() => deleteContact(_id)}
           className="actionIcon"
           title="Delete"
         >

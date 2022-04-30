@@ -27,16 +27,26 @@ const AddContact = ({ handleHideForm, addContact }) => {
     }
 
     let newContact = {
-      id: new Date().toLocaleString(),
       avatar,
       name,
       phone,
       tag: newTag,
     };
     console.log({ newContact });
-    addContact(newContact);
-    alert("Contact added successfully");
-    handleHideForm();
+
+    fetch("http://localhost:4000/contact", {
+      method: "POST",
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+      body: JSON.stringify(newContact),
+    })
+      .then((res) => {
+        addContact(newContact);
+        alert("Contact added successfully");
+        handleHideForm();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

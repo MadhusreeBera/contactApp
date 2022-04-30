@@ -13,6 +13,7 @@ function App() {
 
   const [editedContact, setEditedContact] = useState();
   const [showEditForm, setShowEditForm] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const handleHideForm = () => {
     setShowForm(false);
@@ -23,12 +24,19 @@ function App() {
     setShowEditForm(!showEditForm);
   };
   useEffect(() => {
-    if (tag !== "None") {
-      const filteredList = contactData.filter((contact) => contact.tag === tag);
-      setContactList(filteredList);
-    } else {
-      setContactList(contactData);
-    }
+    setLoader(true);
+    var url = "http://localhost:4000/contact";
+    if (tag !== "None") url = url + "?tag=" + tag;
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setContactList(res.contact);
+        setLoader(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [tag]);
 
   const addContact = (contact) => {
@@ -47,9 +55,27 @@ function App() {
     setContactList(oldContactList);
   };
 
-  const deleteContact = (id) => {
-    const newContactList = contactList.filter((contact) => contact.id !== id);
-    setContactList(newContactList);
+  const deleteContact = (_id) => {
+    if (window.confirm("Are you sure you want to delete this ?")) {
+      const url = "http://localhost:4000/contact/" + _id;
+      fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          alert("Contact deleted");
+          const newContactList = contactList.filter(
+            (contact) => contact._id !== _id
+          );
+          setContactList(newContactList);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -106,14 +132,22 @@ function App() {
               </div>
             </div>
           </div>
-          {contactList.map((contact, index) => (
-            <Contact
-              contactProp={contact}
-              key={contact.id}
-              deleteContact={deleteContact}
-              handleEditForm={handleEditForm}
-            />
-          ))}
+          {loader ? (
+            <h1>Importing contacts . . .</h1>
+          ) : contactList.length === 0 ? (
+            <div>
+              <p>You have not added any contacts yet . . .😔😔😔</p>
+            </div>
+          ) : (
+            contactList.map((contact, index) => (
+              <Contact
+                contactProp={contact}
+                key={contact.id}
+                deleteContact={deleteContact}
+                handleEditForm={handleEditForm}
+              />
+            ))
+          )}
         </div>
         <div className="rightContainer">
           {/* form */}
