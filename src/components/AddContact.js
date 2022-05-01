@@ -34,7 +34,7 @@ const AddContact = ({ handleHideForm, addContact }) => {
     };
     console.log({ newContact });
 
-    fetch("http://localhost:4000/contact", {
+    fetch("https://mern2k22-backend.herokuapp.com/contact", {
       method: "POST",
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify(newContact),

@@ -33,7 +33,7 @@ const EditContact = ({ setShowEditForm, contact, editContact }) => {
       tag: newTag,
     };
     console.log({ editedContact });
-    fetch("http://localhost:4000/contact/" + contact._id, {
+    fetch("https://mern2k22-backend.herokuapp.com/contact/" + contact._id, {
       method: "PATCH",
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify(editedContact),

@@ -25,7 +25,7 @@ function App() {
   };
   useEffect(() => {
     setLoader(true);
-    var url = "http://localhost:4000/contact";
+    var url = "https://mern2k22-backend.herokuapp.com/contact";
     if (tag !== "None") url = url + "?tag=" + tag;
     fetch(url)
       .then((res) => res.json())
@@ -57,7 +57,7 @@ function App() {
 
   const deleteContact = (_id) => {
     if (window.confirm("Are you sure you want to delete this ?")) {
-      const url = "http://localhost:4000/contact/" + _id;
+      const url = "https://mern2k22-backend.herokuapp.com/contact/" + _id;
       fetch(url, {
         method: "DELETE",
         headers: {
@@ -133,7 +133,7 @@ function App() {
             </div>
           </div>
           {loader ? (
-            <h1>Importing contacts . . .</h1>
+            <p>Importing contacts . . .</p>
           ) : contactList.length === 0 ? (
             <div>
               <p>You have not added any contacts yet . . .😔😔😔</p>
