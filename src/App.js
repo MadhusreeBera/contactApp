@@ -112,7 +112,6 @@ function App() {
               </div>
               <div>
                 <input
-                  class="cursor-pointer mr-2"
                   type="radio"
                   name="tag"
                   onChange={() => setTag("Work")}
@@ -122,7 +121,6 @@ function App() {
               </div>
               <div>
                 <input
-                  class="cursor-pointer mr-2"
                   type="radio"
                   name="tag"
                   onChange={() => setTag("School")}
