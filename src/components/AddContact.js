@@ -41,7 +41,7 @@ const AddContact = ({ handleHideForm, addContact }) => {
     })
       .then((res) => res.json()) // must include this
       .then((res) => {
-        addContact(newContact);
+        addContact({ ...newContact, _id: res.contact._id });
         alert("Contact added successfully");
         handleHideForm();
       })
